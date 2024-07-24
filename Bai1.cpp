@@ -174,6 +174,25 @@ void inDongChiChuaSoChan(int **mt, int m, int n)
 		}
 	}
 }
+void sapXepTangDanTungDong(int **mt, int m, int n) 
+{
+	for (int i = 0; i < n; ++i) 
+	{
+		for (int j = 0; j < m - 1; ++j) 
+		{
+			for (int k = j + 1; k < m; ++k) 
+			{
+				if (mt[i][j] > mt[i][k])
+				{
+					int temp = mt[i][j];
+					mt[i][j] = mt[i][k];
+					mt[i][k] = temp;
+				}
+			}
+		}
+	}
+}
+
 //============================xu_li_main
 int main()
 {
@@ -213,6 +232,8 @@ int main()
 		printf("5.Tim phan tu cuc dai \n");
 		printf("6.Xuat cac phan tu hoang hau \n");
 		printf("7.Xuat cac phan tu yen ngua \n");
+		printf("8.Tim dong toan chan\n");
+		printf("9.Sap xep mang A tang theo tung dong\n");
 		printf("10. thoat chuong trinh\n");
 		printf("Hay nhap lua chon cua ban: \n");
 		scanf("%d", &chon);
@@ -242,6 +263,10 @@ int main()
 			break;
 		case 8:
 			inDongChiChuaSoChan(mt, m, n);
+			break;
+		case 9:
+			sapXepTangDanTungDong(mt, m, n);
+			xuatMatran(mt, m, n);
 			break;
 		case 10:
 			giaiPhongMtran(mt, m);
