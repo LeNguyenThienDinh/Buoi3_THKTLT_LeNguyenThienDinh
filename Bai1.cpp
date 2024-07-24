@@ -93,6 +93,62 @@ void inCacPhanTuBien(int **mt, int m, int n) {
 		printf("\n");
 	}
 }
+void inPhanTuCucDai(int **mt, int soDong, int soCot) {
+	printf("cac phan tu cuc dai la:\n");
+	for (int i = 0; i < soDong; ++i) {
+		for (int j = 0; j < soCot; ++j) {
+			bool cucDai = true;
+			if (i > 0 && mt[i][j] <= mt[i - 1][j]) cucDai = false;
+			if (i < soDong - 1 && mt[i][j] <= mt[i + 1][j]) cucDai = false;
+			if (j > 0 && mt[i][j] <= mt[i][j - 1]) cucDai = false;
+			if (j < soCot - 1 && mt[i][j] <= mt[i][j + 1]) cucDai = false;
+			if (cucDai) {
+				printf("%d (%d, %d)\n", mt[i][j], i, j);
+			}
+		}
+	}
+}
+bool ktraHoangHau(int **mt, int m, int n, int i, int j) {
+	for (int x = 0; x < m; ++x) {
+		if (x != i && mt[x][j] >= mt[i][j]) return false;
+	}
+	for (int y = 0; y < n; ++y) {
+		if (y != j && mt[i][y] >= mt[i][j]) return false;
+	}
+	return true;
+}
+void inPhanTuHoangHau(int **mt, int m, int n) {
+	printf("cac phan tu hoang hau:\n");
+	for (int i = 0; i < m; ++i) {
+		for (int j = 0; j < n; ++j) {
+			if (ktraHoangHau(mt, m, n, i, j)) {
+				printf("%d (%d, %d)\n", mt[i][j], i, j);
+			}
+		}
+	}
+}
+
+bool KtraDiemYenNgua(int **mt, int m, int n, int i, int j) {
+	int giaTri = mt[i][j];
+	for (int y = 0; y < n; ++y) {
+		if (mt[i][y] < giaTri) return false;
+	}
+	for (int x = 0; x < m; ++x) {
+		if (mt[x][j] > giaTri) return false;
+	}
+	return true;
+}
+
+void inDiemYenNgua(int **mt, int m, int n) {
+	printf("cac diem yen ngua la:\n");
+	for (int i = 0; i < m; ++i) {
+		for (int j = 0; j < n; ++j) {
+			if (KtraDiemYenNgua(mt, m, n, i, j)) {
+				printf("%d (%d, %d)\n", mt[i][j], i, j);
+			}
+		}
+	}
+}
 //============================xu_li_main
 int main()
 {
@@ -129,6 +185,7 @@ int main()
 		printf("2.Tinh tong gia tri tung dong \n");
 		printf("3.Tim max cot \n");
 		printf("4.Hien thi cac phan tu thuoc bien \n");
+		printf("5.Tim phan tu cuc dai \n");
 		printf("10. thoat chuong trinh\n");
 		printf("Hay nhap lua chon cua ban: \n");
 		scanf("%d", &chon);
@@ -147,6 +204,9 @@ int main()
 			break;
 		case 4:
 			inCacPhanTuBien(mt, m, n);
+			break;
+		case 5:
+			inPhanTuCucDai(mt, m, n);
 			break;
 		case 10:
 			giaiPhongMtran(mt, m);
