@@ -66,6 +66,33 @@ void timMaxCot(int **mt, int m, int n)
 		printf("Phan tu lon nhat cot %d la: %d \n", j + 1, max);
 	}
 }
+
+void inCacPhanTuBien(int **mt, int m, int n) {
+	printf("Cac phan tu thuoc duong bien la:\n");
+	for (int j = 0; j < n; ++j) {
+		printf("%d ", mt[0][j]);
+	}
+	printf("\n");
+
+	for (int i = 1; i < m - 1; ++i) {
+		printf("%d ", mt[i][n - 1]);
+	}
+	printf("\n");
+
+	if (n > 1) {
+		for (int j = n - 1; j >= 0; --j) {
+			printf("%d ", mt[m - 1][j]);
+		}
+		printf("\n");
+	}
+
+	if (n > 1) {
+		for (int i = m - 2; i > 0; --i) {
+			printf("%d ", mt[i][0]);
+		}
+		printf("\n");
+	}
+}
 //============================xu_li_main
 int main()
 {
@@ -100,6 +127,8 @@ int main()
 		printf("==========chuc nang===========\n");
 		printf("1.tao ma tran ngau nhien \n");
 		printf("2.Tinh tong gia tri tung dong \n");
+		printf("3.Tim max cot \n");
+		printf("4.Hien thi cac phan tu thuoc bien \n");
 		printf("10. thoat chuong trinh\n");
 		printf("Hay nhap lua chon cua ban: \n");
 		scanf("%d", &chon);
@@ -115,6 +144,8 @@ int main()
 			break;
 		case 3:
 			timMaxCot(mt, m, n);
+			break;
+		case 4:
 			break;
 		case 10:
 			giaiPhongMtran(mt, m);
