@@ -83,6 +83,8 @@ int main()
 	{
 		printf("==========chuc nang===========\n");
 		printf("1.tao ma tran ngau nhien \n");
+		printf("2.Tinh tong gia tri tung dong \n");
+		printf("10. thoat chuong trinh");
 		printf("Hay nhap lua chon cua ban: \n");
 		scanf("%d", &chon);
 		switch (chon)
@@ -93,7 +95,7 @@ int main()
 			xuatMatran(mt, m, n);
 			break;
 		case 2:
-
+			tongDong(mt, m, n);
 			break;
 		case 10:
 			giaiPhongMtran(mt, m);
