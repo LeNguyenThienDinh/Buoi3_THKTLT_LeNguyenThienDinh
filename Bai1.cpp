@@ -113,6 +113,9 @@ int main()
 		case 2:
 			tongDong(mt, m, n);
 			break;
+		case 3:
+			timMaxCot(mt, m, n);
+			break;
 		case 10:
 			giaiPhongMtran(mt, m);
 			printf("Thoat chuong trinh\n");
