@@ -149,18 +149,25 @@ void inDiemYenNgua(int **mt, int m, int n) {
 		}
 	}
 }
-void inDongChiChuaSoChan(int **mt, int m, int n) {
-	printf("cac dong chi chua so chan la:\n");
-	for (int i = 0; i < m; ++i) {
+void inDongChiChuaSoChan(int **mt, int m, int n) 
+{
+	
+	for (int i = 0; i < m; ++i) 
+	{
 		bool chiChuaSoChan = true;
-		for (int j = 0; j < n; ++j) {
-			if (mt[i][j] % 2 != 0) {
+		for (int j = 0; j < n; ++j) 
+		{
+			if (mt[i][j] % 2 != 0) 
+			{
 				chiChuaSoChan = false;
+				printf("khong co dong nao chua so chan\n");
 				break;
 			}
 		}
 		if (chiChuaSoChan) {
-			for (int j = 0; j < n; ++j) {
+			for (int j = 0; j < n; ++j) 
+			{
+				printf("cac dong chi chua so chan la:\n");
 				printf("%d ", mt[i][j]);
 			}
 			printf("\n");
@@ -232,6 +239,9 @@ int main()
 			inPhanTuHoangHau(mt, m, n);
 			break;
 		case 7:inDiemYenNgua(mt, m, n);
+			break;
+		case 8:
+			inDongChiChuaSoChan(mt, m, n);
 			break;
 		case 10:
 			giaiPhongMtran(mt, m);
