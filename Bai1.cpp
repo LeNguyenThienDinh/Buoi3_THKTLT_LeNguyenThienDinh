@@ -15,6 +15,18 @@ void taoMaTran(int **mt, int m, int n, int thap, int cao)
 		}
 	}
 }
+
+void xuatMatran(int **mt, int m, int n)
+{
+	for (int i = 0; i < m; ++i)
+	{
+		for (int j = 0; j < n; ++j)
+		{
+			printf("%d ", mt[i][j]);
+		}
+		printf("\n");
+	}
+}
 //============================xu_li_main
 int main()
 {
@@ -52,6 +64,7 @@ int main()
 		switch (chon)
 		{
 		case 1:
+			taoMaTran(mt, m, n, thap, cao);
 			break;
 		case 2:
 			break;
