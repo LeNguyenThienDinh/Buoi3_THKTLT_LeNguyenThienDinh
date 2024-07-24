@@ -149,6 +149,24 @@ void inDiemYenNgua(int **mt, int m, int n) {
 		}
 	}
 }
+void inDongChiChuaSoChan(int **mt, int m, int n) {
+	printf("cac dong chi chua so chan la:\n");
+	for (int i = 0; i < m; ++i) {
+		bool chiChuaSoChan = true;
+		for (int j = 0; j < n; ++j) {
+			if (mt[i][j] % 2 != 0) {
+				chiChuaSoChan = false;
+				break;
+			}
+		}
+		if (chiChuaSoChan) {
+			for (int j = 0; j < n; ++j) {
+				printf("%d ", mt[i][j]);
+			}
+			printf("\n");
+		}
+	}
+}
 //============================xu_li_main
 int main()
 {
@@ -186,6 +204,8 @@ int main()
 		printf("3.Tim max cot \n");
 		printf("4.Hien thi cac phan tu thuoc bien \n");
 		printf("5.Tim phan tu cuc dai \n");
+		printf("6.Xuat cac phan tu hoang hau \n");
+		printf("7.Xuat cac phan tu yen ngua \n");
 		printf("10. thoat chuong trinh\n");
 		printf("Hay nhap lua chon cua ban: \n");
 		scanf("%d", &chon);
@@ -207,6 +227,11 @@ int main()
 			break;
 		case 5:
 			inPhanTuCucDai(mt, m, n);
+			break;
+		case 6:
+			inPhanTuHoangHau(mt, m, n);
+			break;
+		case 7:inDiemYenNgua(mt, m, n);
 			break;
 		case 10:
 			giaiPhongMtran(mt, m);
