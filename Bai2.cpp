@@ -27,6 +27,38 @@ void inMaTranVuong(int **maTran, int n)
 		printf("\n");
 	}
 }
+void inDuongCheoChinh(int **maTran, int n) 
+{
+	printf("cac phan tu tren duong cheo chinh la:\n");
+	for (int i = 0; i < n; ++i) 
+	{
+		printf("%d ", maTran[i][i]);
+	}
+	printf("\n");
+}
+
+void inDuongCheoSongSong(int **maTran, int n)
+{
+	printf("cac phan tu thuoc duong cheo song song voi duong cheo chinh la:\n");
+
+	for (int k = 1; k < n; ++k)
+	{
+		for (int i = 0, j = k; j < n; ++i, ++j)
+		{
+			printf("%d ", maTran[i][j]);
+		}
+		printf("\n");
+	}
+
+	for (int k = 1; k < n; ++k) 
+	{
+		for (int i = k, j = 0; i < n; ++i, ++j) 
+		{
+			printf("%d ", maTran[i][j]);
+		}
+		printf("\n");
+	}
+}
 
 //== == == == == == == == == == == == == xu_li_main == == == == == == == == == == == == == == == ==
 int main() 
@@ -63,6 +95,8 @@ int main()
 	{
 		printf("\nMenu:\n");
 		printf("1. tao va hien thi ma tran vuong\n");
+		printf("2. in duong cheo chinh ma tran vuong\n");
+		printf("3. in duong cheo song song cheo chinh ma tran vuong\n");
 		printf("7. thoat\n");
 		printf("nhap lua chon: ");
 		scanf("%d", &luaChon);
@@ -71,11 +105,14 @@ int main()
 		{
 		case 1:
 			taoMaTranVuong(maTran, n, thap, cao);
-			printf("ma tran vuong co cap %d:\n", n);
+			printf("ma tran vuong co n %d:\n", n);
 			inMaTranVuong(maTran, n);
 			break;
 		case 2:
-			
+			inDuongCheoChinh(maTran, n);
+			break;
+		case 3:
+			inDuongCheoSongSong(maTran, n);
 			break;
 		case 7:
 			for (int i = 0; i < n; ++i) {
