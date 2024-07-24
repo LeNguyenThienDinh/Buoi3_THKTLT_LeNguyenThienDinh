@@ -36,6 +36,20 @@ void giaiPhongMtran(int **mt, int m)
 	}
 	free(mt);
 }
+
+int tongDong(int **mt, int m, int n)
+{
+	
+	for (int i = 0; i < m; ++i)
+	{
+		int tong = 0;
+		for (int j = 0; j < n; ++j)
+		{
+			tong += mt[i][j];
+		}
+		printf("tong dong %d la: %d", i + 1, m);
+	}
+}
 //============================xu_li_main
 int main()
 {
@@ -67,7 +81,7 @@ int main()
 	taoMaTran(mt, m, n, thap, cao);
 	while (1)
 	{
-		printf("==========chuc nang===========");
+		printf("==========chuc nang===========\n");
 		printf("1.tao ma tran ngau nhien \n");
 		printf("Hay nhap lua chon cua ban: \n");
 		scanf("%d", &chon);
@@ -75,9 +89,15 @@ int main()
 		{
 		case 1:
 			taoMaTran(mt, m, n, thap, cao);
+			printf("Ma tran la: \n");
 			xuatMatran(mt, m, n);
 			break;
 		case 2:
+
+			break;
+		case 10:
+			giaiPhongMtran(mt, m);
+			printf("Thoat chuong trinh\n");
 			break;
 		}
 	}
