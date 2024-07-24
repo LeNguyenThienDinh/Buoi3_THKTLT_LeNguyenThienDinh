@@ -146,6 +146,7 @@ int main()
 			timMaxCot(mt, m, n);
 			break;
 		case 4:
+			inCacPhanTuBien(mt, m, n);
 			break;
 		case 10:
 			giaiPhongMtran(mt, m);
