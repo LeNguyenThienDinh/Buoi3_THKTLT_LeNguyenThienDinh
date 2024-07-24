@@ -50,6 +50,22 @@ void tongDong(int **mt, int m, int n)
 		printf("tong dong %d la: %d\n", i + 1, tong);
 	}
 }
+
+void timMaxCot(int **mt, int m, int n)
+{
+	for (int j = 0; j < n; ++j)
+	{
+		int max = mt[0][j];
+		for (int i = 0; i < m; ++i)
+		{
+			if (mt[i][j]> max)
+			{
+				max = mt[i][j];
+			}
+		}
+		printf("Phan tu lon nhat cot %d la: %d \n", j + 1, max);
+	}
+}
 //============================xu_li_main
 int main()
 {
